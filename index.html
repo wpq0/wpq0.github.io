@@ -1,499 +1,289 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8"/>
-        <title>Hoàng Vũ</title>
-        <meta name="author" content="Hoàng Vũ"/>
-        <meta name="description" content="Hoàng Vũ, kỹ sư phần mềm">
-		<script src="jquery.min.js" type="text/javascript"></script>
-		<script src="modernizr-2.0.6-development-only.js" type="text/javascript"></script>
-		<style type="text/css">
-/* reset.css */
-html {margin:0;padding:0;border:0;}
-body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, dialog, figure, footer, header, hgroup, nav, section {margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
-article, aside, details, figcaption, figure, dialog, footer, header, hgroup, menu, nav, section {display:block;}
-body {line-height:1.5;background:white;}
-table {border-collapse:separate;border-spacing:0;}
-caption, th, td {text-align:left;font-weight:normal;float:none !important;}
-table, th, td {vertical-align:middle;}
-blockquote:before, blockquote:after, q:before, q:after {content:'';}
-blockquote, q {quotes:"" "";}
-a img {border:none;}
-:focus {outline:0;}
-		</style>
-		<!--[if IE 6]>
-		<style type="text/css">
-/* ie.css */
-body {text-align:center;}
-.container {text-align:left;}
-* html .column, * html .span-1, * html .span-2, * html .span-3, * html .span-4, * html .span-5, * html .span-6, * html .span-7, * html .span-8, * html .span-9, * html .span-10, * html .span-11, * html .span-12, * html .span-13, * html .span-14, * html .span-15, * html .span-16, * html .span-17, * html .span-18, * html .span-19, * html .span-20, * html .span-21, * html .span-22, * html .span-23, * html .span-24 {display:inline;overflow-x:hidden;}
-* html legend {margin:0px -8px 16px 0;padding:0;}
-sup {vertical-align:text-top;}
-sub {vertical-align:text-bottom;}
-html>body p code {*white-space:normal;}
-hr {margin:-8px auto 11px;}
-img {-ms-interpolation-mode:bicubic;}
-.clearfix, .container {display:inline-block;}
-* html .clearfix, * html .container {height:1%;}
-fieldset {padding-top:0;}
-legend {margin-top:-0.2em;margin-bottom:1em;margin-left:-0.5em;}
-textarea {overflow:auto;}
-label {vertical-align:middle;position:relative;top:-0.25em;}
-input.text, input.title, textarea {background-color:#fff;border:1px solid #bbb;}
-input.text:focus, input.title:focus {border-color:#666;}
-input.text, input.title, textarea, select {margin:0.5em 0;}
-input.checkbox, input.radio {position:relative;top:.25em;}
-form.inline div, form.inline p {vertical-align:middle;}
-form.inline input.checkbox, form.inline input.radio, form.inline input.button, form.inline button {margin:0.5em 0;}
-button, input.button {position:relative;top:0.25em;}
-		</style>
-		<link rel="StyleSheet" href="http://github.com/joshuaclayton/blueprint-css/raw/master/blueprint/ie.css"/>
-		<![endif]-->
-		<style type="text/css">
-/* typography.css */
-html {font-size:100.01%;}
-body {font-size:75%;color:#222;background:#fff;font-family:"Helvetica Neue", Arial, Helvetica, sans-serif;}
-h1, h2, h3, h4, h5, h6 {font-weight:normal;color:#111;}
-h1 {font-size:3em;line-height:1;margin-bottom:0.5em;}
-h2 {font-size:2em;margin:0.5em 0;}
-h3 {font-size:1.5em;line-height:1;margin-bottom:1em;}
-h4 {font-size:1.2em;line-height:1.25;margin-bottom:1.25em;}
-h5 {font-size:1em;font-weight:bold;margin-bottom:1.5em;}
-h6 {font-size:1em;font-weight:bold;}
-h1 img, h2 img, h3 img, h4 img, h5 img, h6 img {margin:0;}
-p {margin:0 0 1.5em;}
-.left {float:left !important;}
-p .left {margin:1.5em 1.5em 1.5em 0;padding:0;}
-.right {float:right !important;}
-p .right {margin:1.5em 0 1.5em 1.5em;padding:0;}
-a:focus, a:hover {color:#09f;}
-a {color:#06c;text-decoration:underline;}
-blockquote {margin:1.5em;color:#666;font-style:italic;}
-strong, dfn {font-weight:bold;}
-em, dfn {font-style:italic;}
-sup, sub {line-height:0;}
-abbr, acronym {border-bottom:1px dotted #666;}
-address {margin:0 0 1.5em;}
-del {color:#666;}
-pre {margin:1.5em 0;white-space:pre;}
-pre, code, tt {font:1em 'andale mono', 'lucida console', monospace;line-height:1.5;}
-li ul, li ol {margin:0;}
-ul, ol {margin:0 1.5em 1.5em 0;padding-left:1.5em;}
-ul {list-style-type:disc;}
-ol {list-style-type:decimal;}
-dl {margin:0 0 1.5em 0;}
-dl dt {font-weight:bold;}
-dd {margin-left:1.5em;}
-table {margin-bottom:1.4em;width:100%;}
-th {font-weight:bold;}
-thead th {background:#c3d9ff;}
-th, td, caption {padding:4px 10px 4px 5px;}
-tbody tr:nth-child(even) td, tbody tr.even td {background:#e5ecf9;}
-tfoot {font-style:italic;}
-caption {background:#eee;}
-.small {font-size:.8em;margin-bottom:1.875em;line-height:1.875em;}
-.large {font-size:1.2em;line-height:2.5em;margin-bottom:1.25em;}
-.hide {display:none;}
-.quiet {color:#666;}
-.loud {color:#000;}
-.highlight {background:#ff0;}
-.added {background:#060;color:#fff;}
-.removed {background:#900;color:#fff;}
-.first {margin-left:0;padding-left:0;}
-.last {margin-right:0;padding-right:0;}
-.top {margin-top:0;padding-top:0;}
-.bottom {margin-bottom:0;padding-bottom:0;}
-		</style>
-		<style type="text/css">
-/* ================ */
-/* = The 1Kb Grid = */     /* 16 columns, 40 pixels each, with 20 pixel gutter */
-/* ================ */
-
-body { margin: 20px 0 0 0; }
-
-.grid_1 { width:40px; }
-.grid_2 { width:100px; }
-.grid_3 { width:160px; }
-.grid_4 { width:220px; }
-.grid_5 { width:280px; }
-.grid_6 { width:340px; }
-.grid_7 { width:400px; }
-.grid_8 { width:460px; }
-.grid_9 { width:520px; }
-.grid_10 { width:580px; }
-.grid_11 { width:640px; }
-.grid_12 { width:700px; }
-.grid_13 { width:760px; }
-.grid_14 { width:820px; }
-.grid_15 { width:880px; }
-.grid_16 { width:940px; }
-
-.column {
-	margin: 0 10px;
-	overflow: hidden;
-	float: left;
-	display: inline;
-}
-.row {
-	width: 960px;
-	margin: 0 auto;
-	overflow: hidden;
-}
-.row .row {
-	margin: 0 -10px;
-	width: auto;
-	display: inline-block;
-}
-
-.hidden { display:none; }
-
-.box { 
-	float:left; 
-	display:block;
-}
-
-.tiles li{
-	position:relative;
-}
-
-.tiles li .caption {
-	display:block;
-	width:100%;
-	position:absolute;
-	bottom:0;
-	line-height:1em;
-	height:1em;
-	font-size:1.25em;
-	font-weight:bold;
-	color:#fff;
-	text-indent:.5em;
-	padding:.5em 0;
-	background-color:#999;
-	opacity:.9;
-}
-
-.tiles li a {
-	display:block;
-	width:100%;
-	height:128px;
-	line-height:2em;
-	text-decoration:none;
-	font-weight:bold;
-	/*border: 1px solid #ccc;*/
-	position:relative;
-	background-repeat:no-repeat;
-	opacity:.5;
-	cursor:pointer;
-}
-.tiles li a:hover {
-	/*border: 1px solid #666;*/
-	opacity:1;
-}
-.container {
-	width: 960px;
-	margin: 0 auto;
-	overflow: hidden;
-	border:1px solid #ccc;
-	-webkit-border-radius: 16px;
-	-moz-border-radius: 16px;
-	border-radius: 16px;
-	margin-bottom:1em;
-	padding:1em;
-}
-ul.root{
-	list-style:none;
-	padding:0;
-	margin:0;
-	float:left;
-}
-.summary h3{
-	margin-bottom:.25em;
-}
-.summary .jobinfo{
-	font-size:.9em;
-	font-style:italic;
-}
-
-#summary, #contact{
-	border-top:none;
-}
-
-a.action:hover{
-	cursor:pointer;
-}
-
-p.short{
-	text-align:justify;
-	margin-bottom:0;
-}
-section.row {
-	margin-top:.25em;
-	border-top:1px dotted #ccc;
-}
-.description .long, .description.expanded .action.expand {
-	display:none;
-}
-.description.expanded .long{
-	display:block;
-}
-#experiences .experience {
-	margin-top:.5em;
-}
-		</style>
-		<script type="text/javascript">
-			$(function(){
-				$(".description .action.expand, .description .action.contract").click(function(){
-					$(this).parentsUntil(".description").parent().toggleClass("expanded");
-				})
-			})
-		</script>
-    </head>
-    <body class="hresume">
-	<div class="container">
-    <header id="title" class="row">
-		<h1>Hoàng Vũ</h1>
-	</header>
-	<section id="contact" class="contact row">
-        <div class="vcard">
-			<h2 class="hidden" id="name">Contact</h2>
-			<span class="fn n hidden" id="name">
-				<span class="family-name">Hoàng</span>
-				<span class="given-name">Vũ</span>
-			</span>
-			<span class="email grid_3 column">
-				<a href="mailto:hvu.0x7c2@gmail.com" class="value">hvu.0x7c3@gmail.com</a>
-			</span>
-			<span class="tel grid_3 column">
-				<abbr class="value" title="+841669249251">(84)-166-924-9251</abbr>
-			</span>
-			<address class="adr grid_10 column">
-				<span class="street-address">1505 Trung Yen 1 Bld, Trung Kinh</span>
-				<span class="locality">Cau Giay</span>,
-				<span class="region">Hanoi</span>
-				<span class="postal-code hidden">100900</span>
-				<span class="country-name">Vietnam</span>
-			</address>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Hoàng Vũ</title>
+    <meta name="author" content="Hoàng Vũ" />
+    <meta name="description" content="Hoàng Vũ, software engineer" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,800&subset=latin,vietnamese' rel='stylesheet' type='text/css' />
+    <link href="css/style.css" rel="stylesheet" />
+</head>
+<body>
+    <section id="about" class="slide" itemscope itemtype="http://schema.org/Person">
+        <div class="row slide-content">
+            <h1 itemprop="name">
+                <span itemprop="familyName">Hoàng</span>&nbsp;
+                <span itemprop="givenName">Vũ</span>
+            </h1>
+            <br />
+            <img itemprop="image" alt="portrait (of my cat)" src="/images/cat.jpg" />
+            <br />
+            <dl class="contact inline">
+                <dt>Email</dt>
+                <dd><a itemprop="email" href="mailto:hvu.0x7c2@gmail.com" class="value">hvu.0x7c3@gmail.com</a></dd>
+                <dt>Phone</dt>
+                <dd><a itemprop="telephone" href="tel:+841669249251">(84)-166-924-9251</a></dd>
+                <dt>Url</dt>
+                <dd>
+                    <a itemprop="url" href="http://www.hoang.vu">hoang.vu</a>
+                </dd>
+                <dt class="hide">Address</dt>
+                <dd class="hide" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                    <span itemprop="streetAddress">1505 Trung Yen 1 Bld, Trung Kinh</span>
+                    <span itemprop="addressLocality">Cau Giay, Hanoi</span>
+                    <span itemprop="postalCode">100900</span>
+                    <span itemprop="addressCountry">Vietnam</span>
+                </dd>
+            </dl>
+            <div itemprop="description">
+                <p>I'm a full-stack software engineer with considerable experience working inside the browser and with the .NET platform. I love learning new stuffs and solving hard problems</p>
+            </div>
         </div>
     </section>
-    <section id="summary" class="row">
-        <h2 class="hidden">Summary</h2>
-        <p class="short column grid_16">I'm a versatile software engineer who follows sensible development practices. I'm highly proficient with the .NET stacks but can switch to Java if the requirement calls for it. Recently, I've shifted my focus to front-end development using HTML and Javascript.</p>
+    <section id="synoptik" class="slide work">
+        <div class="row slide-content">
+            <div class="columns large-6 end">
+                <h2>Synoptik </h2>
+                <dl class="summary">
+                    <dt>Type</dt>
+                    <dd>Web app</dd>
+                    <dt>Url</dt>
+                    <dd><a href="http://guide.synoptik.dk/">guide.synoptik.dk</a></dd>
+                    <dt>Company</dt>
+                    <dd><a href="http://magnetix.dk">Magnetix</a></dd>
+                    <dt>Role</dt>
+                    <dd>Developer</dd>
+                </dl>
+                <div class="description">
+                    <p>
+                        Even though the whole app is really simple: a wizard for selecting eyewears and a catalogue, the devil is in the detail.
+                        It is fully responsive with breakpoints for large, medium and small devices. And while the art department put
+                        eye-candies above all else, I strived to keep the precarious balance between aesthetics and accessibility.
+                    </p>
+                </div>
+            </div>
+        </div>
     </section>
-	<section id="works" class="row">
-		<h2>Works</h2>
-		<ul class="tiles">
-            <li class="box grid_4">
-                <a href="https://github.com/wpq0/Tiny-Expression-Evaluator" style='background-image:url("github-repo.png")' title="I designed the grammar and implemented runtime bindng of a simple expression language">
-					<span class="caption">Tiny Expression Language</span>
-				</a>
-            </li>
-			<li class="box grid_4">
-				<a href="https://github.com/downloads/wpq0/Document-Signer-App/wSignerUI-1.1.8.zip" target="_blank" style='background-image:url("wsigner.png")' title='I authored a free digital signature utility'>
-					<span class="caption">Document Signer</span>
-				</a>
-			</li>
-			<li class="box grid_4">
-				<a href="http://noptokhai.vn/" target="_blank" style='background-image:url("tvan.png")' title='I led a team behind Bkav Tvan, a web application that let users manage their tax returns "on the cloud"'>
-					<span class="caption">NopToKhai.vn (Bkav TVAN)</span>
-				</a>
-            </li>
-            <li class="box grid_4">
-                <a href="http://motcuacapxa.baria-vungtau.gov.vn/" target="_blank" style='background-image:url("egate.png")' title="I wrote a single-page Javascript application that aggregates and visualizes data from a distributed network of web services.">
-					<span class="caption">Bkav eGate</span>
-				</a>
-            </li>
-			<li class="box grid_4">
-                <a href="https://docs.google.com/document/pub?id=16Z2zDPanSxoU_JxI1Y_1mjQdJFHqPum29TEq6XrEpso" target="_blank" style='background-image:url("doc.png")' title="I published an introduction to refactoring and unit-testing to train my team member at Bkav">
-					<span class="caption">Refactoring and Unit-Testing</span>
-				</a>
-            </li>
-			<li class="box grid_4">
-                <a href="http://www.pcworld.com.vn/articles/cong-nghe/cong-nghe/2006/02/1188574/khai-niem-ve-cryptography/" target="_blank" style='background-image:url("doc.png")' title="I wrote an article about the basics of Cryptography for PCWorld Vietnam shortly before I left highschool.">
-					<span class="caption">Concepts of Cryptography</span>
-				</a>
-            </li>
-        </ul>
-	</section>
-    <section id="experiences" class="row">
-        <h2>Experiences</h2>
-        <ul class="vcalendar root">
-			<li class="experience vevent row">
-				<div class="summary column grid_3">
-					<h3>Freelancing</h3>
-					<span class="jobinfo">
-						<span class="position">Translator &amp; Editor</span>
-						<br/>
-						<abbr class="dtstart" title="2011-10-01">Oct 2011</abbr>
-						&mdash;
-						<abbr class="dtend" title="2011-09-30">present</abbr>
-					</span>
-				</div>
-				<div class="description column grid_13">
-					<ul class="short">
-						<li>Provide Vietnamese subtitles for a series of educational videos about monetary policy.</li>
-						<li>Edit essays for students seeking scholarship to study abroad.</li>
-					</ul>
-				</div>
-			</li>
-			<li class="experience vevent row">
-				<div class="summary column grid_3">
-					<h3><a href="https://noptokhai.vn/" title="Bkav Tvan website">Bkav Tvan</a></h3>
-					<span class="jobinfo">
-						<span class="position">Team leader</span>
-						<br/>
-						<span class="location">Bkav Software</span>
-						<br/>
-						<abbr class="dtstart" title="2011-01-01">Jan 2011</abbr>
-						&mdash;
-						<abbr class="dtend" title="2011-09-30">Sep 2011</abbr>
-					</span>
-				</div>
-				<div class="description column grid_13">
-					<p class="short">I led a team of 5 to build a service where people can manage their electronic tax returns "on the cloud". It was Bkav's entry in <abbr title="General Department of Taxation">GDT</abbr>'s initiative to bring in the private sector called <abbr title="Tax Value-Added Network">TVAN</abbr> (similar to <a href="http://en.wikipedia.org/wiki/IRS_e-file" title="Wikipedia entry on e-file">e-file</a> model by the <abbr title="Internal Revenue Service">IRS</abbr> in America). Though being the last to come in the race, my team's effort made Bkav the 2nd company to be granted <abbr title="General Department of Taxation">GDT</abbr>'s license, even before bigger players like Viettel and FPT. Our service is also the major factor behind the sales boost of <abbr title="Bkav Certificate Authority">BkavCA</abbr>'s certificate USB token.
-						<br/>
-						<a class="action expand">Details &#187;</a>
-					</p>
-					<div class="long">
-						<ul>
-							<li>Laid out the overall architecture and built the common infrastructure libraries.</li>
-							<li>Define a hyper schema so that data with constantly changing schema can be effectively stored in a relational database. This was crucial because <abbr title="General Department of Taxation">GDT</abbr> update fields and rules on their tax forms very frequently.
-							</li>
-							<li>Builted an simple formula engine (with similar syntax to Excel) in which domain experts can define complex rules. The <abbr title="Abstract Syntax Tree">AST</abbr> gained from parsing these formulas was used to:
-								<ul>
-									<li>Weave JavaScript code to feed the browser (client-side)</li>
-									<li>Evaluate them on .NET's <abbr title="Dynamic Language Runtime">DLR</abbr> (server-side)</li>
-									<li>Reduce by 50% the work on auto-correction and validation of tax forms by uniting the code on both sides. This is the major time saver in the course of our project, since there is a huge number of complex mathematical formulas in the tax forms.</li>
-								</ul>
-							</li>
-							<li>Design an web interface to create and modify tax form schemas so the burden of creating 100+ tax forms is shifted from the developers to the domain experts.
-							</li>
-							<li>Put together a library for exporting user's tax form data into valid <abbr title="Portable Document Format">PDF</abbr> and Excel documents.
-							</li>
-							<li>Wrote a <span class="skill">C&#x266F;</span> library and a <span class="skill">Java</span> applet to stamp digital signature on the exported documents both in the browser and on the server.</a>
-							</li>
-							<li>Created a <abbr title="Windows Presentation Foundation">WPF</abbr> desktop application so those without Java can download and sign PDF tax returns on their own machine.
-							</li>
-							<li>Hancrafted the networking component that talks to a legacy <abbr title="SOAP with Attachment">SwA</abbr> web service on <abbr title="General Department of Taxation">GDT</abbr>'s side. (SwA was proposed by <abbr title="World Wide Web Consortium">W3C</abbr> decades ago, but never became a standard).
-							</li>
-							<li>Held regular <a href="http://en.wikipedia.org/wiki/Code_review">code review</a> sessions and trained other team members in the use of <a href="http://en.wikipedia.org/wiki/Design_Pattern">design patterns</a>, <a href="http://en.wikipedia.org/wiki/Unit_testing" title="Unit testing">unit testing</a> and <a href="http://en.wikipedia.org/wiki/Issue_tracking_system">issue tracking</a>.
-							</li>
-							<li>Convinced upper management to adopt <a href="http://en.wikipedia.org/wiki/Agile_software_development" title="Agile development practices">Agile</a> &amp; <a href="http://en.wikipedia.org/wiki/Scrum_(development)" title="Scrum cycle in software development">Scrum</a> software development process.</li>
-						</ul>
-						<a class="action contract">&#171; Hide</a>
-					</div>
-				</div>
-            </li>
-			<li class="experience vevent row">
-				<div class="summary column grid_3">
-					<h3><a href="http://egate.com.vn/" title ="eGate prouct page">Bkav eGate</a></h3>
-					<span class="jobinfo">
-						<span class="position">Developer</span>
-						<br/>
-						<span class="location">Bkav Software</span>
-						<br/>
-						<abbr class="dtstart" title="2009-12-20">Dec 2009</abbr>
-						&mdash;
-						<abbr class="dtend" title="2010-12-31">Dec 2010</abbr>
-					</span>
-				</div>
-				<div class="description column grid_13">
-					<p class="short">Worked on various parts of eGate, the web-based form processing system for public offices (a part of Bkav's eGovernment initiative). 
-						<br/>
-						<a class="action expand">Details &#187;</a>
-					</p>
-					<div class="long">
-						<ul>
-							<li>Developed the messaging and templating infrastructure (email &amp; <abbr title="Short Message System">SMS</abbr>).</li>
-							<li>Created a <abbr title="Windows Communication Foundation">WCF</abbr> &amp; <abbr title="JSON with Padding">JSONP</abbr> web service component for reporting operational data on every nodes in a distributed network of 50+ eGate installations all over the province of Vung Tau.</li>
-							<li>Designed a <a href="http://en.wikipedia.org/wiki/Single-page_application" title="Wikipedia article on Single Page Application (SPA)">single-page application</a> that consolidate and visualize data from said web services. This application was instrumental in proving the viability of eGate to Bkav's clients. It can be found <a class="example" href="http://motcuacapxa.baria-vungtau.gov.vn/" title="Bkav eGate operation statistics portal">here</a>.
-							</li>
-						</ul>
-						<a class="action contract">&#171; Hide</a>
-					</div>
-				</div>
-			</li>
-        </ul>
+    <section id="legoland" class="slide work">
+        <div class="row slide-content">
+            <div class="columns large-6 end">
+                <h2>Legoland</h2>
+                <dl class="summary">
+                    <dt>Type</dt>
+                    <dd>Web sites</dd>
+                    <dt>Urls</dt>
+                    <dd>
+                        <a href="http://legoland.dk/">DK</a>
+                        <a href="http://legoland.de/">DE</a>
+                        <a href="http://legoland.co.uk/">UK</a>
+                        <a href="http://legoland.com.my/">MY</a>
+                        <a href="http://california.legoland.com/">US (CA)</a>
+                        <a href="http://florida.legoland.com/">US (FL)</a>
+                        <a href="http://legolandholidays.de/">Hotel</a>
+                    </dd>
+                    <dt>Company</dt>
+                    <dd><a href="http://magnetix.dk">Magnetix</a></dd>
+                    <dt>Role</dt>
+                    <dd>Developer</dd>
+                </dl>
+                <div class="description">
+                    <p>
+                        The six-year-old codebase was built upon EpiServer CMS and shared by 7 sites.
+                        It was designed with little architectural foresight and outdated techniques.
+                        And even though I didn't have the budget to rewrite some buggy and broken parts, I alleviate many pain points while maintaining it.
+                        Every new feature is a struggle, but in the end, our customer were happy.
+                        Among the many new parts I developed these were my proudest:
+                    </p>
+                    <ul>
+                        <li>The hotel booking <a href="https://legolandholidays.de/Book/">flow</a></li>
+                        <li>The <a href="http://m.legoland.dk/da/Park-Map/">map viewer</a> for mobile browsers</li>
+                        <li>The ticket booking <a href="http://www.legoland.dk/Tickets/">widget</a></li>
+                    </ul>
+                </div>
+                
+            </div>
+            
+        </div>
     </section>
-    <section id="qualifications" class="row">
-        <h2>Qualifications</h2>
-        <ul class="vcalendar">
-            <li class="education vevent vcard">
-                <span class="summary"><abbr title="Bachelor of Arts">B.A.</abbr> from <a class="fn org" href="http://www.hou.edu.vn/" title="Hanoi Open University website">Hanoi Open University</a></span>
-				<span class="adr hidden">
-					<span class="locality">Hanoi</span>
-			    </span>
-				(
-                <span class="date_duration">
-                    <abbr class="dtstart" title="2005-10-13">Oct 2005</abbr>
-                    <abbr class="dtend" title="2009-06-25">Jun 2009</abbr>
-                </span>
-				)
-            </li>
-            <li class="education vevent vcard">
-				<span class="summary"><abbr title="Aptech Certified Computer Professional">ACCP</abbr> at <a class="fn n org" href="http://www.aptech.vn/" title="Hanoi Aptech website">Hanoi Aptech Computer Education</a></span>
-                <span class="adr hidden">
-					<span class="locality">Hanoi</span>
-			    </span>
-				(
-				<span class="date_duration">
-                    <abbr class="dtstart" title="2006-10-03">Sep 2006</abbr>
-                    <abbr class="dtend" title="2009-07-15">Jul 2009</abbr>
-                </span>
-				)
-            </li>
-			<li class="education vevent vcard">
-				<div class="hidden" id="ets-contact">
-					<a class="fn n org" href="http://www.ets.vn/" title="ETS website">Educational Testing Service</a>
-					<span class="adr">
-						<span class="locality">U.S.</span>
-					</span>
-				</div>
-				<span class="summary"><abbr title="Internet-based Test of English as a Foreign Language">TOEFL iBT</abbr> score: 113/120</span>
-                (
-				<span class="date_duration">
-                    <abbr class="dtstart" title="2009-07-25">Jul 2009</abbr>
-                </span>
-				)
-            </li>
-			<li class="education vevent vcard">
-				<span class="summary"><abbr title="Test of English for International Communication">TOEIC</abbr> score: 925/990</span>
-                (
-				<span class="date_duration">
-                    <abbr class="dtstart" title="2009-01-25">Jan 2009</abbr>
-                </span>
-				)
-            </li>
-        </ul>
+    <section id="niteco-timesheet" class="slide work">
+        <div class="row slide-content">
+            <div class="columns large-6 end">
+                <h2>Niteco Timesheet</h2>
+                <dl class="summary">
+                    <dt>Type</dt>
+                    <dd>Web App</dd>
+                    <dt>Url</dt>
+                    <dd><a href="http://efficienttime.com/" title="Efficient Time">efficienttime.com</a></dd>
+                    <dt>Company</dt>
+                    <dd><a href="http://niteco.se">Niteco</a></dd>
+                    <dt>Primary Role</dt>
+                    <dd>Front-end developer</dd>
+                </dl>
+                <div class="description">
+                    <p>
+                        I was responsible for the app's most complex UI components: the time registering interface, the year and month calendar which were built them from scratch using basic libraries like jQuery and Knockout without relying any pre-made components.
+                    </p>
+                </div>
+            </div>
+            
+        </div>
     </section>
-    <section id="publications" class="row hidden">
-        <h2>Publications</h2>
-        <ul class="publications">
-			<li class="publication">
-                <span class="summary">
-					<a href="http://www.pcworld.com.vn/articles/cong-nghe/cong-nghe/2006/02/1188574/khai-niem-ve-cryptography/"><cite>Concepts of Cryptography</cite> (PCWorld Vietnam - <abbr class="dtstart" title="2006-10-02">Oct 2006</abbr>)</a>
-				</span>
-            </li>
-            <li class="publication vevent">
-                <span class="summary">
-					<a href="https://docs.google.com/document/pub?id=16Z2zDPanSxoU_JxI1Y_1mjQdJFHqPum29TEq6XrEpso"><cite>A primer on refactoring and unit-testing</cite></a>(<abbr class="dtstart" title="2006-10-02">Oct 2006</abbr>)
-					<a href="https://docs.google.com/document/pub?id=16Z2zDPanSxoU_JxI1Y_1mjQdJFHqPum29TEq6XrEpso"><cite>A primer on refactoring and unit-testing</cite></a>(<abbr class="dtstart" title="2006-10-02">Oct 2006</abbr>)
-				</span>
-            </li>
-        </ul>
+    <section id="tinypg" class="slide work">
+        <div class="row slide-content">
+            <div class="columns large-6 end">
+                <h2>Tiny Expression Evaluator</h2>
+                <dl class="summary">
+                    <dt>Type</dt>
+                    <dd>Library (Open source)</dd>
+                    <dt>Url</dt>
+                    <dd><a href="https://github.com/wpq0/Tiny-Expression-Evaluator" title="TinyEE">Github Repo</a></dd>
+                    <dt>Role</dt>
+                    <dd>Author</dd>
+                </dl>
+                <div class="description">
+                    <p>
+                        This is a complete rewrite of the expression parser I built for Bkav. I streamlined the syntax, increased performance and added many new features.
+                    </p>
+                </div>
+            </div>
+        </div>
     </section>
-	<section id="repos" class="row hidden">
-		<h2>Open Source</h2>
-		<ul class="open-sources">
-			<li>
-				<a href="https://github.com/wpq0/Document-Signer" title="A digital signature library and desktop application">Document Signer</a>
-			</li>
-			<li>
-				<a href="https://github.com/wpq0/Tiny-Expression-Language" title="A ">Tiny Expression Language</a>
-			</li>
-		</ul>
-	</section>
-	<footer class="row">
-	</footer>
-	</div>
-	</body>
+    <section id="bkav-tvan" class="slide work">
+        <div class="row slide-content">
+            <div class="columns large-6 end">
+                <h2>Bkav <abbr title="Tax Value-Added Network">TVAN</abbr></h2>
+                <dl class="summary">
+                    <dt>Type</dt>
+                    <dd>Web application</dd>
+                    <dt>Company</dt>
+                    <dd><a href="http://bkav.com.vn">BKAV</a></dd>
+                    <dt>Url</dt>
+                    <dd><a href="https://noptokhai.vn/" title="Bkav TVAN">noptokhai.vn</a></dd>
+                    <dt>Role</dt>
+                    <dd>Team leader, lead developer</dd>
+                </dl>
+                <div class="description">
+                    <p>
+                        This was the company's bid in the <abbr title="General Department of Taxation">GDT</abbr>'s initiative to create a model similar to the
+                        <abbr title="Internal Revenue Service">IRS</abbr>'s <a href="http://en.wikipedia.org/wiki/IRS_e-file" title="Wikipedia entry on e-file">e-file</a>
+                        system in the U.S. My team's effort helped the company secure the license before bigger players like Viettel and
+                        FPT. Our service also boosts the sale of <abbr title="Bkav Certificate Authority">BkavCA</abbr>'s certificate tokens.
+                    </p>
+                    <p>
+                        I was responsible for all the core components:
+                        <ul>
+                            <li>
+                                A form-builder where editors can define the schema of all tax returns.
+                                With this, the burden of creating and maintaining 100+ tax forms was shifted from the developers to domain experts.
+                            </li>
+                            <li>
+                                An expression parser that let them define complex formulae in those forms using a syntax similar to Excel.
+                                This parser produce an <abbr title="Abstract Syntax Tree">AST</abbr> that we then use to generate Javascript to validate
+                                input in the browser as well as to evaluate form values on the <abbr title="Dynamic Language Runtime">DLR</abbr> server-side.
+                            </li>
+                            <li>
+                                A library for generating, signing and validating digital signatures on tax returns in <abbr title="Portable Document Format">PDF</abbr> and Excel formats.
+                                It was so versatile that I could use it on the server, put it in our <abbr title="Windows Presentation Foundation">WPF</abbr> client app, and translated it to a Java applet.
+                            </li>
+                        </ul>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="skills" class="slide skills">
+        <div class="row slide-content">
+            <div class="columns large-12 end">
+                <h2>Skills</h2>
+                <dl>
+                    <dt class="group-title">Core skills</dt>
+                    <dd>
+                        <dl>
+                            <dt class="skill">Algorithm and data structure</dt>
+                            <dd class="bar">2/5</dd>
+                            <dt class="skill"><abbr title="Object Oriented">OO</abbr> Design Patterns</dt>
+                            <dd class="bar">3/5</dd>
+                            <dt class="skill">Functional Design Patterns</dt>
+                            <dd class="bar">1/5</dd>
+                            <dt class="skill">Problem solving</dt>
+                            <dd class="bar">4/5</dd>
+                        </dl>
+                    </dd>
+                    <dt class="group-title">Languages</dt>
+                    <dd>
+                        <dl>
+                            <dt class="skill">C&#9839;</dt>
+                            <dd class="bar">4/5</dd>
+                            <dt class="skill">Javascript</dt>
+                            <dd class="bar">4/5</dd>
+                            <dt class="skill">Typescript</dt>
+                            <dd class="bar">2.5/5</dd>
+                            <dt class="skill">SQL</dt>
+                            <dd class="bar">1.5/5</dd>
+                        </dl>
+                    </dd>
+                    <dt class="group-title"><abbr title="Domain Specific Language">DSL</abbr> and Markups</dt>
+                    <dd>
+                        <dl>
+                            <dt class="skill">HTML</dt>
+                            <dd class="bar">4/5</dd>
+                            <dt class="skill">CSS</dt>
+                            <dd class="bar">4/5</dd>
+                            <dt class="skill">SASS</dt>
+                            <dd class="bar">3/5</dd>
+                        </dl>
+                    </dd>
+                    <dt class="group-title">Libraries and Frameworks</dt>
+                    <dd>
+                        <dl>
+                            <dt class="skill">.NET <abbr title="Base Class Library">BCL</abbr></dt>
+                            <dd class="bar">4/5</dd>
+                            <dt class="skill">ASP.NET</dt>
+                            <dd class="bar">2.5/5</dd>
+                            <dt class="skill">jQuery</dt>
+                            <dd class="bar">3/5</dd>
+                            <dt class="skill">underscore/lodash</dt>
+                            <dd class="bar">3/5</dd>
+                            <dt class="skill">Knockout</dt>
+                            <dd class="bar">4/5</dd>
+                        </dl>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </section>
+    <section id="qualifications" class="slide qualifications">
+        <div class="row slide-content">
+            <div class="columns large-6 end">
+                <h2>Qualifications</h2>
+                <dl>
+                    <dt><abbr title="Bachelor of Arts">B.A.</abbr></dt>
+                    <dd>from <a href="http://www.hou.edu.vn/" title="Hanoi Open University website">Hanoi Open University</a> (<abbr class="dtend" title="2009-06-25">Jun 2009</abbr>)</dd>
+                    <dt><abbr title="Aptech Certified Computer Professional">ACCP</abbr></dt>
+                    <dd> at <a href="http://www.aptech.vn/" title="Hanoi Aptech website">Hanoi Aptech Computer Education</a> (<abbr class="dtend" title="2009-07-15">Jul 2009</abbr>)</dd>
+                    <dt><abbr title="Internet-based Test of English as a Foreign Language">TOEFL iBT</abbr></dt>
+                    <dd> score: 113/120 (<abbr class="dtstart" title="2009-07-25">Jul 2009</abbr>)</dd>
+                    <dt><abbr title="Test of English for International Communication">TOEIC</abbr></dt>
+                    <dd> score: 925/990 (<abbr class="dtstart" title="2009-01-25">Jan 2009</abbr>)</dd>
+                </dl>
+                <h2>Publications</h2>
+                <dl>
+                    <dt>Concepts of Cryptography</dt>
+                    <dd>(<a href="http://www.pcworld.com.vn/articles/cong-nghe/cong-nghe/2006/02/1188574/khai-niem-ve-cryptography/">PCWorld Vietnam</a> - <abbr class="dtstart" title="2006-10-02">Oct 2006</abbr>)</dd>
+                </dl>
+            </div>
+        </div>
+    </section>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.min.js" type="text/javascript"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#skills .bar").each(function (idx, elem) {
+                var $bar = $(elem),
+                    percentage = eval($bar.text());//static site, known input, eval is not so evil here
+                $bar.append($("<span>").addClass("fill").css("width", (percentage * 100) + "%"));
+            });
+        });
+    </script>
+</body>
 </html>

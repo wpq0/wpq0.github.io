@@ -1,0 +1,72 @@
+﻿@mixin full-height-pseudo-elem($width:5px){
+    &:before{
+        content:" ";
+        display:inline-block;
+        height:100%;
+        vertical-align:middle;
+        margin-left: (-$width);
+    }
+}
+@mixin transition-delay($duration){
+    -webkit-transition-delay: $duration;
+    -moz-transition-delay: $duration;
+    -o-transition-delay: $duration;
+    transition-delay: $duration;
+}
+
+@mixin transform($prop:null, $translate:null, $translate3d:null, $rotate:null, $rotate3d:null, $scale:null, $scale3d:null, $skew:null, $matrix:null, $matrix3d:null){
+    $transformation: null;	
+	@if($prop) {
+        $transformation: $prop;
+    }
+    @else{
+        $transformation: #{if($translate, translate(zip($translate)), '')} #{if($translate3d, translate3d(zip($translate3d)), '')} #{if($rotate, rotate($rotate), '')} #{if($rotate3d, rotate3d(zip($rotate3d)), '')} #{if($scale, scale(zip($scale)), '')} #{if($scale3d, scale3d(zip($scale3d)), '')} #{if($skew, skew(zip($skew)), '')} #{if($matrix, matrix(zip($matrix)), '')} #{if($matrix3d, matrix3d(zip($matrix3d)), '')};
+    }
+    -webkit-transform:$transformation;
+    -moz-transform:$transformation;
+    -ms-transform:$transformation;
+    -o-transform:$transformation;
+    transform:$transformation;
+}
+@mixin box-shadow($shadow){
+  -moz-box-shadow:    $shadow;
+  -webkit-box-shadow: $shadow;
+  box-shadow:         $shadow;
+}
+
+@mixin transition($prop:all, $easeFn:linear, $duration:1s, $delay:null){
+    @if($prop == 'transform'){
+        -moz-transition: -moz-transform $easeFn $duration;
+        -o-transition: -o-transform $easeFn $duration;
+        -webkit-transition: -webkit-transform $easeFn $duration;
+        transition: transform $easeFn $duration;
+        -webkit-backface-visibility: hidden;
+	    -moz-backface-visibility:    hidden;
+	    -ms-backface-visibility:     hidden;
+        backface-visibility:     hidden;
+    }
+    @else{
+        -moz-transition: $prop $easeFn $duration;
+        -o-transition: $prop $easeFn $duration;
+        -webkit-transition: $prop $easeFn $duration;
+        transition: $prop $easeFn $duration;
+    }
+    @if($delay){
+        -webkit-transition-delay: $delay;
+        -moz-transition-delay: $delay;
+        -o-transition-delay: $delay;
+        transition-delay: $delay;
+    }
+}
+@mixin keyframes($name){
+    @-moz-keyframes #{$name} { @content; }
+    @-webkit-keyframes #{$name} { @content; }
+    @-o-keyframes #{$name} { @content; }
+    @keyframes #{$name}{ @content; }
+}
+@mixin animation($animation){
+	-moz-animation:		$animation;
+	-o-animation:		$animation;
+	-webkit-animation:	$animation;
+	animation:			$animation;
+}
