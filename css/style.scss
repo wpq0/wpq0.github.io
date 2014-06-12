@@ -7,6 +7,11 @@ html, body{
 }
 .slide{
 	height:100%;
+	@media #{$small-only}{
+		height:auto;
+		padding:1em 0;
+	}
+	
 	text-align:center;
 	position:relative;
 	margin:auto;
@@ -41,10 +46,15 @@ html, body{
 		background-attachment:fixed;
 		background-position:85% bottom;
 		z-index:1;
+		@media #{$small-only}{
+			display:none;
+		}
 	}
 }
 
-
+abbr[title]{
+	border-bottom:none;
+}
 dl {
 	@include clearfix;
 	dt, dd{
@@ -128,19 +138,31 @@ dl {
 	.group-title{
 		display:block;
 		float:none;
-		& > dd {
-			margin-bottom:0;
+		font-size:120%;
+	}
+	.group-content {
+		margin-bottom:0;
+		@media #{$small-only}{
+			width:100%;
 		}
 	}
 	.skill{
 		min-width:256px;
 		text-align:right;
+		@media #{$small-only}{
+			text-align:left;
+			width:100%;
+		}
 	}
 	.bar{
 		width:256px;
+		@media #{$small-only}{
+			width:100%;
+		}
 		text-align:center;
 		border:1px solid #00DFFC;
 		position:relative;
+		font-weight:bold;
 	}
 	.fill{
 		position:absolute;
@@ -153,5 +175,8 @@ dl {
 	}
 	dl{
 		margin-bottom:0.5rem;
+		@media #{$small-only}{
+			width:100%;
+		}
 	}
 }

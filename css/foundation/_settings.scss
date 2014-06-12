@@ -162,7 +162,7 @@ $header-line-height: 1;
 // $code-font-weight: bold;
 
 // We use these to style anchors
-// $anchor-text-decoration: none;
+$anchor-text-decoration: underline;
 $anchor-font-color: $body-font-color;
 // $anchor-font-color-hover: scale-color($primary-color, $lightness: -14%);
 
@@ -191,7 +191,7 @@ $anchor-font-color: $body-font-color;
 // $blockquote-cite-link-color: $blockquote-cite-font-color;
 
 // Acronym styles
-// $acronym-underline: 1px dotted #ddd;
+$acronym-underline: none;
 
 // We use these to control padding and margin
 // $microformat-padding: rem-calc(10 12);

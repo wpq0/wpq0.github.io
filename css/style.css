@@ -1463,7 +1463,7 @@ td {
 /* Default Link Styles */
 a {
   color: white;
-  text-decoration: none;
+  text-decoration: underline;
   line-height: inherit; }
   a:hover, a:focus {
     color: #dbdbdb; }
@@ -1613,7 +1613,7 @@ acronym {
   text-transform: uppercase;
   font-size: 100%;
   color: white;
-  border-bottom: 1px dotted #dddddd;
+  border-bottom: none;
   cursor: help; }
 
 abbr {
@@ -2720,6 +2720,10 @@ html, body {
   margin: auto;
   overflow: hidden;
   *zoom: 1; }
+  @media only screen and (max-width: 40em) {
+    .slide {
+      height: auto;
+      padding: 1em 0; } }
   .slide:before, .slide:after {
     content: " ";
     display: table; }
@@ -2758,6 +2762,12 @@ html, body {
     background-attachment: fixed;
     background-position: 85% bottom;
     z-index: 1; }
+    @media only screen and (max-width: 40em) {
+      .slide:after {
+        display: none; } }
+
+abbr[title] {
+  border-bottom: none; }
 
 dl {
   *zoom: 1; }
@@ -2820,17 +2830,29 @@ dl {
   background-position: 85% 50%; }
 #skills .group-title {
   display: block;
-  float: none; }
-  #skills .group-title > dd {
-    margin-bottom: 0; }
+  float: none;
+  font-size: 120%; }
+#skills .group-content {
+  margin-bottom: 0; }
+  @media only screen and (max-width: 40em) {
+    #skills .group-content {
+      width: 100%; } }
 #skills .skill {
   min-width: 256px;
   text-align: right; }
+  @media only screen and (max-width: 40em) {
+    #skills .skill {
+      text-align: left;
+      width: 100%; } }
 #skills .bar {
   width: 256px;
   text-align: center;
   border: 1px solid #00DFFC;
-  position: relative; }
+  position: relative;
+  font-weight: bold; }
+  @media only screen and (max-width: 40em) {
+    #skills .bar {
+      width: 100%; } }
 #skills .fill {
   position: absolute;
   display: block;
@@ -2841,4 +2863,7 @@ dl {
   z-index: -1; }
 #skills dl {
   margin-bottom: 0.5rem; }
+  @media only screen and (max-width: 40em) {
+    #skills dl {
+      width: 100%; } }
 
