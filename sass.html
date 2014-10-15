@@ -105,7 +105,38 @@
                 </div>
             </p>
         </div>
-        <textarea class="source-scss" hidden></textarea>
+        <textarea class="source-scss" hidden>@mixin linear-gradient($from, $to){
+    background: $from;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from($from), to($to));
+    background: -webkit-linear-gradient($from, $to);
+    background: -moz-linear-gradient($from, $to);
+    background: -ms-linear-gradient($from, $to);
+    background: -o-linear-gradient($from, $to);
+    background: linear-gradient($from, $to);
+}
+
+@mixin border-radius($radius:5px, $corners:null) {
+    @if ($corners == null) {
+		-webkit-border-radius: $radius;
+		-moz-border-radius: $radius;
+		border-radius: $radius;
+	}
+	@else {
+		@each $corner in $corners {
+			-webkit-border-#{$corner}-radius:$radius;
+			-moz-border-radius-#{$corner}:$radius;
+			border-#{$corner}-radius:$radius;
+		}
+	}
+}
+
+#slide-8{
+    .canvas{
+        @include linear-gradient(#70f82a, #bdf4e1);
+        @include border-radius(100%);
+
+    }
+}</textarea>
         <textarea class="source-css" hidden></textarea>
         <link href="css/sass-slide/slide-12.css" rel="stylesheet" />
     </section>
@@ -220,19 +251,25 @@
             $(document).on("slide-load", function (evt, $slideElem) {
                 var scssStr = $slideElem.find(".source-scss").val();
                 var cssStr = $slideElem.find(".source-css").val();
-                if (!!scssStr && !!cssStr) {
-                    cssDoc.setValue(cssStr);
+                var cssUrl = $slideElem.find("link").attr("href");
+                if (!!scssStr ) {
                     scssDoc.setValue(scssStr);
                 }
                 else {
-                    var cssUrl = $slideElem.find("link").attr("href");
                     if (cssUrl) {
                         var scssUrl = cssUrl.replace(".css", ".scss");
-                        $.get(cssUrl).done(function (src) {
-                            cssDoc.setValue(src);
-                        });
                         $.get(scssUrl).done(function (src) {
                             scssDoc.setValue(src);
+                        });
+                    }
+                }
+                if (!!cssStr) {
+                    cssDoc.setValue(cssStr);
+                }
+                else {
+                    if (cssUrl) {
+                        $.get(cssUrl).done(function (src) {
+                            cssDoc.setValue(src);
                         });
                     }
                 }
