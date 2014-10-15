@@ -1,0 +1,32 @@
+﻿@mixin linear-gradient($from, $to){
+    background: $from;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from($from), to($to));
+    background: -webkit-linear-gradient($from, $to);
+    background: -moz-linear-gradient($from, $to);
+    background: -ms-linear-gradient($from, $to);
+    background: -o-linear-gradient($from, $to);
+    background: linear-gradient($from, $to);
+}
+
+@mixin border-radius($radius:5px, $corners:null) {
+    @if ($corners == null) {
+		-webkit-border-radius: $radius;
+		-moz-border-radius: $radius;
+		border-radius: $radius;
+	}
+	@else {
+		@each $corner in $corners {
+			-webkit-border-#{$corner}-radius:$radius;
+			-moz-border-radius-#{$corner}:$radius;
+			border-#{$corner}-radius:$radius;
+		}
+	}
+}
+
+#slide-12{
+    .canvas{
+        @include linear-gradient(#cccccc, #666666);
+        @include border-radius(100%);
+
+    }
+}

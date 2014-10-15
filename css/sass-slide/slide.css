@@ -2514,6 +2514,10 @@ html, body {
     opacity: 0; }
   .slide.prev {
     opacity: 0; }
+  .slide .canvas {
+    min-width: 400px;
+    min-height: 400px;
+    background: white; }
 
 #btnNext, #btnPrev {
   display: block;

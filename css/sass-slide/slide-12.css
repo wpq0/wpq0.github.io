@@ -1,0 +1,12 @@
+﻿#slide-12 .canvas {
+  background: #cccccc;
+  background: -webkit-gradient(linear, 0 0, 0 bottom, from(#cccccc), to(#666666));
+  background: -webkit-linear-gradient(#cccccc, #666666);
+  background: -moz-linear-gradient(#cccccc, #666666);
+  background: -ms-linear-gradient(#cccccc, #666666);
+  background: -o-linear-gradient(#cccccc, #666666);
+  background: linear-gradient(#cccccc, #666666);
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%; }
+
