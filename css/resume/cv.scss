@@ -1,0 +1,182 @@
+﻿@import "../foundation/settings",
+		"../foundation",
+		"../_common/mixins";
+
+html, body{
+	height:100%;
+}
+.slide{
+	height:100%;
+	@media #{$small-only}{
+		height:auto;
+		padding:1em 0;
+	}
+	
+	text-align:center;
+	position:relative;
+	margin:auto;
+	overflow:hidden;
+	@include clearfix;
+	@include full-height-pseudo-elem;
+	.slide-content{
+        display:inline-block;
+		text-align:left;
+        overflow:visible;
+        position:relative;
+        z-index:2;
+		vertical-align:middle;
+    }
+	$colors:#343838, #005F6B, #008C9E, #00B4CC;
+	@for $i from 1 through length($colors)
+	{
+		&:nth-of-type(#{length($colors)}n+#{$i}){
+			background-color:#{nth($colors, $i)};
+		}
+	}
+
+	&:after {
+		content:" ";
+		display:block;
+		position:absolute;
+		top:0;
+		left:0;
+		width:100%;
+		height:100%;
+		background-repeat:no-repeat;
+		background-attachment:fixed;
+		background-position:85% bottom;
+		z-index:1;
+		@media #{$small-only}{
+			display:none;
+		}
+	}
+}
+
+abbr[title]{
+	border-bottom:none;
+}
+dl {
+	@include clearfix;
+	dt, dd{
+		display:inline-block;
+		float:left;
+		margin-bottom:0.5rem;
+		margin-right:0.5rem;
+	}
+	dt{
+		clear:left;
+	}
+	&.inline{
+		dt{
+			clear:none;
+		}
+	}
+}
+
+
+
+#about{
+	.slide-content{
+		text-align:center;
+	}
+	
+	dl{
+		display:inline-block;
+	}
+	img{
+		width:192px;
+		height:192px;
+		@include radius($global-rounded);
+		margin:0.5em 0;
+	}
+}
+#qualifications{
+	&:after{
+		background-image:url(/images/bike.png);
+	}
+}
+#synoptik{
+	&:after{
+		background-image:url(/images/synoptik.jpg);
+		background-position: 100% 55%;
+		background-size:50%;
+	}
+}
+#legoland{
+	&:after{
+		background-image:url(/images/legoland.jpg);
+		background-position: 95% 50%;
+		background-size:45%;
+	}
+}
+#niteco-timesheet{
+	&:after{
+		background-image:url(/images/niteco-timesheet.jpg);
+		background-position: 85% 50%;
+		background-size:35%;
+	}
+}
+#tinypg{
+	&:after{
+		background-image:url(/images/code.png);
+		background-position: 85% 50%;
+		background-size:25%;
+	}
+}
+#bkav-tvan{
+	&:after{
+		background-image:url(/images/dotnet.svg);
+		background-position: 85% 50%;
+		background-size:25%;
+	}
+}
+#skills{
+	&:after{
+		background-image:url(/images/html5.svg);
+		background-position: 85% 50%;
+	}
+	.group-title{
+		display:block;
+		float:none;
+		font-size:120%;
+	}
+	.group-content {
+		margin-bottom:0;
+		@media #{$small-only}{
+			width:100%;
+		}
+	}
+	.skill{
+		min-width:256px;
+		text-align:right;
+		@media #{$small-only}{
+			text-align:left;
+			width:100%;
+		}
+	}
+	.bar{
+		width:256px;
+		@media #{$small-only}{
+			width:100%;
+		}
+		text-align:center;
+		border:1px solid #00DFFC;
+		position:relative;
+		font-weight:bold;
+	}
+	.fill{
+		position:absolute;
+		display:block;
+		top:0;
+		left:0;
+		height:100%;
+		background-color:#00DFFC;
+		z-index:-1;
+	}
+	dl{
+		margin-bottom:0.5rem;
+		@media #{$small-only}{
+			width:100%;
+		}
+	}
+}
