@@ -2598,7 +2598,8 @@ html, body {
     -webkit-border-radius: 100%;
     border-radius: 100%;
     overflow: hidden;
-    text-indent: 999px; }
+    text-indent: 999px;
+    background-color: rgba(33, 33, 33, 0.625); }
     #sources #btnToggle:focus {
       outline: none; }
     #sources #btnToggle:before {
