@@ -1,0 +1,13 @@
+﻿body div.container div.content div.articles > div.post div.title h1 a {
+  color: white; }
+body div.container div.content div.articles > div.post div.content ul li {
+  color: red; }
+body div.container div.content div.articles > div.post div.author a.display img {
+  width: 100%; }
+body div.container div.content div.articles > div.post div.author h4 a {
+  text-align: center; }
+body div.container div.content div.articles > div.post div.author p a {
+  text-align: right; }
+body div.container div.content div.articles > div.post div.author ul li {
+  padding: 0; }
+

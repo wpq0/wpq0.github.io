@@ -1,0 +1,24 @@
+﻿#slide-vars-mixins .canvas {
+  width: 400px;
+  height: 400px;
+  margin: 0 auto;
+  background: #FD6406;
+  background: -webkit-gradient(linear, 0 0, 0 bottom, from(#FD6406), to(#F5220F));
+  background: -webkit-linear-gradient(#FD6406, #F5220F);
+  background: -moz-linear-gradient(#FD6406, #F5220F);
+  background: -ms-linear-gradient(#FD6406, #F5220F);
+  background: -o-linear-gradient(#FD6406, #F5220F);
+  background: linear-gradient(#FD6406, #F5220F);
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+  border: 16px solid #fea16b; }
+  #slide-vars-mixins .canvas:hover {
+    background: #F5220F;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#F5220F), to(#FD6406));
+    background: -webkit-linear-gradient(#F5220F, #FD6406);
+    background: -moz-linear-gradient(#F5220F, #FD6406);
+    background: -ms-linear-gradient(#F5220F, #FD6406);
+    background: -o-linear-gradient(#F5220F, #FD6406);
+    background: linear-gradient(#F5220F, #FD6406); }
+

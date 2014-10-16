@@ -1,0 +1,36 @@
+﻿body {
+  div.container {
+    div.content {
+      div.articles {
+        & > div.post {
+          div.title {
+            h1 {
+              a { color:white;
+              }
+            }
+          }
+          div.content {
+            p {  }
+            ul {
+              li { color:red; }
+            }
+          }
+          div.author {
+            a.display {
+              img { width:100%; }
+            }
+            h4 {
+              a { text-align:center; }
+            }
+            p {
+              a { text-align:right; }
+            }
+            ul {
+              li { padding:0; }
+            }
+          }
+        }
+      }
+    }
+  }
+}

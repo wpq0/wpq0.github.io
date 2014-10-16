@@ -23,10 +23,20 @@
 	}
 }
 
-#slide-8{
+#slide-vars-mixins{
     .canvas{
-        @include linear-gradient(#70f82a, #bdf4e1);
+        width:400px;
+        height:400px;
+        margin:0 auto;
+        
+        //#70f82a #bdf4e1
+        $from-bg:#F5220F;
+        $to-bg:#FD6406;
+        @include linear-gradient($to-bg, $from-bg);
         @include border-radius(100%);
-
+        border:16px solid lighten($to-bg, 20%);
+        &:hover{
+            @include linear-gradient($from-bg, $to-bg);
+        }
     }
 }

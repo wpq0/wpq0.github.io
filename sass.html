@@ -12,100 +12,441 @@
 <body>
     <button type="button" id="btnNext">Next</button>
     <button type="button" id="btnPrev">Prev</button>
-    <section id="slide-0" class="slide current" data-stage="0">
+    <section id="slide-intro" class="slide current" data-stage="0">
         <div class="slide-content">
             <img src="/images/sass.svg" />
+            <br />
+            <img src="images/niteco_logo.png" style="display:block; margin: 1rem auto;"/>
         </div>
-        <textarea class="source-scss" hidden></textarea>
+    </section>
+    <section id="slide-problem" class="slide next">
+        <div class="slide-content">
+            <h2>
+                Our stylesheets are huge
+            </h2>
+        </div>
+    </section>
+    <section id="slide-superset" class="slide">
+        <div class="slide-content">
+            <div class="canvas">
+                <div class="sass-features">
+                    <div class="feature core">CSS</div>
+                    <div class="feature add" title="Nesting">Nesting</div>
+                    <div class="feature add" title="Variable">Variable</div>
+                    <div class="feature add" title="If/Else">If/Else</div>
+                    <div class="feature add" title="Loop">Loop</div>
+                    <div class="feature add" title="Extend">Extend</div>
+                    <div class="feature add" title="Mixin">Mixin</div>
+                    <div class="feature add" title="Import">Import</div>
+                    <div class="feature add" title="Functions">Functions</div>
+                </div>
+            </div>
+        </div>
+        <textarea class="source-scss" hidden>
+@mixin transition-delay($duration){
+    -webkit-transition-delay: $duration;
+    -moz-transition-delay: $duration;
+    -o-transition-delay: $duration;
+    transition-delay: $duration;
+}
+
+@mixin transform($prop:null, $translate:null, $translate3d:null, $rotate:null, $rotate3d:null, $scale:null, $scale3d:null, $skew:null, $matrix:null, $matrix3d:null){
+    $transformation: null;	
+	@if($prop) {
+        $transformation: $prop;
+    }
+    @else{
+        $transformation: #{if($translate, translate(zip($translate)), '')} #{if($translate3d, translate3d(zip($translate3d)), '')} #{if($rotate, rotate($rotate), '')} #{if($rotate3d, rotate3d(zip($rotate3d)), '')} #{if($scale, scale(zip($scale)), '')} #{if($scale3d, scale3d(zip($scale3d)), '')} #{if($skew, skew(zip($skew)), '')} #{if($matrix, matrix(zip($matrix)), '')} #{if($matrix3d, matrix3d(zip($matrix3d)), '')};
+    }
+    -webkit-transform:$transformation;
+    -moz-transform:$transformation;
+    -ms-transform:$transformation;
+    -o-transform:$transformation;
+    transform:$transformation;
+}
+
+@mixin transition($prop:all, $easeFn:linear, $duration:1s, $delay:null){
+    @if($prop == 'transform'){
+        -moz-transition: -moz-transform $easeFn $duration;
+        -o-transition: -o-transform $easeFn $duration;
+        -webkit-transition: -webkit-transform $easeFn $duration;
+        transition: transform $easeFn $duration;
+        -webkit-backface-visibility: hidden;
+	    -moz-backface-visibility:    hidden;
+	    -ms-backface-visibility:     hidden;
+        backface-visibility:     hidden;
+    }
+    @else{
+        -moz-transition: $prop $easeFn $duration;
+        -o-transition: $prop $easeFn $duration;
+        -webkit-transition: $prop $easeFn $duration;
+        transition: $prop $easeFn $duration;
+    }
+    @if($delay){
+        -webkit-transition-delay: $delay;
+        -moz-transition-delay: $delay;
+        -o-transition-delay: $delay;
+        transition-delay: $delay;
+    }
+}
+@mixin border-radius($radius:5px, $corners:null) {
+    @if ($corners == null) {
+		-webkit-border-radius: $radius;
+		-moz-border-radius: $radius;
+		border-radius: $radius;
+	}
+	@else {
+		@each $corner in $corners {
+			-webkit-border-#{$corner}-radius:$radius;
+			-moz-border-radius-#{$corner}:$radius;
+			border-#{$corner}-radius:$radius;
+		}
+	}
+}
+
+@mixin center-known-block($width, $height){
+    display:block;
+    position:absolute;
+    margin:0;
+    padding:0;
+    width:$width;
+    height:$height;
+    line-height:$height;
+    margin-left:-$width/2;
+    margin-top:-$height/2;
+    left:50%;
+    top:50%;
+    text-align:center;
+}
+@mixin keyframes($name){
+    @-moz-keyframes #{$name} { @content; }
+    @-webkit-keyframes #{$name} { @content; }
+    @-o-keyframes #{$name} { @content; }
+    @keyframes #{$name}{ @content; }
+}
+@mixin animation($animation){
+    -moz-animation:		$animation;
+    -o-animation:		$animation;
+    -webkit-animation:	$animation;
+    animation:			$animation;
+}
+//code start here
+@include keyframes(sass-logo-fade-out){
+    0%{
+        opacity:1;
+    }
+    100% {
+        opacity:0;
+    }
+}
+@include keyframes(sass-logo-fade-in){
+    0%{
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}
+
+#slide-superset {
+    $container-bg-alt-color:#600c1a;
+    //$container-bg-color: $container-bg-alt-color;
+    //$base-feature-color: lighten($container-bg-alt-color, 20%);
+    $container-bg-color: #24013a;
+    $base-feature-color: #6b03ae;
+    $circle-size: 80px;
+    $transition-duration: 330ms;
+    @include border-radius(100%);
+    $count: 8;
+    $angle: 360deg/8;
+
+    .canvas {
+        background: transparent;
+    }
+
+    .sass-features {
+        width: 400px;
+        height: 400px;
+        @include border-radius(100%);
+        background: $container-bg-color;
+        position: relative;
+
+        &:after {
+            display: block;
+            content: " ";
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: url(/images/sass.svg) center center no-repeat;
+            background-size: contain;
+            opacity: 1;
+            @include animation(sass-logo-fade-in);
+            @include transition-delay($transition-duration * 3);
+        }
+    }
+
+
+    .feature {
+        &.add {
+            width: 100%;
+            height: $circle-size;
+            line-height: $circle-size;
+            left: 0;
+            top: 50%;
+            margin-top: -$circle-size/2;
+            position: absolute;
+            color: transparent;
+
+            &:after {
+                display: block;
+                position: absolute;
+                width: $circle-size;
+                height: $circle-size;
+                text-align: center;
+                top: 0;
+                right: 10px;
+                color: white;
+                content: attr(title);
+                @include border-radius(100%);
+                @include transition(transform, ease, $transition-duration);
+            }
+
+
+
+            @for $i from 1 through $count {
+                &:nth-child(#{$count}n+#{$i}) {
+                    @include transform($rotate:$angle * ($i - 3));
+
+                    &:after {
+                        background-color: lighten($base-feature-color, $i*5%);
+                        @include transform($translate:-100% 0, $rotate:-$angle * ($i - 3), $scale:0.0);
+                        @include transition-delay($transition-duration + $i * $transition-duration/8);
+                    }
+                }
+            }
+        }
+
+        &.core {
+            $big-circle-size: $circle-size *2;
+            background-color: $base-feature-color;
+            font-size:4rem;
+            @include border-radius(100%);
+            @include center-known-block($big-circle-size, $big-circle-size);
+            @include transform($scale:0.0);
+            @include transition(transform, ease, $transition-duration);
+        }
+    }
+
+    .sass-features:hover {
+        &:after {
+            opacity: 0;
+            @include animation(sass-logo-fade-out $transition-duration);
+        }
+
+        .feature {
+            &.add {
+                @for $i from 1 through $count {
+                    &:nth-child(#{$count}n+#{$i}) {
+                        &:after {
+                            @include transform($translate:0 0, $rotate:-$angle * ($i - 3), $scale:1);
+                        }
+                    }
+                }
+            }
+
+            &.core {
+                @include transform($scale:1);
+            }
+        }
+    }
+}
+
+        
+
+        </textarea>
         <textarea class="source-css" hidden></textarea>
-        <link href="css/sass-slide/slide-0.css" rel="stylesheet" />
+        <link href="css/sass-slide/slide-superset.css" rel="stylesheet" />
     </section>
-    <section id="slide-1" class="slide next">
+    <section id="slide-why" class="slide">
         <div class="slide-content">
-            <h2>Just CSS &trade;</h2>
+            <h2>Why SASS?</h2>
+            <div class="row">
+                <div class="columns medium-6">
+                    <img src="images/recycle.svg" width="320" height="320" />
+                </div>
+                <div class="columns medium-6">
+                    <p>
+                        Reduce complexity
+                        <br />
+                        Reuse your code
+                        <br />
+                        Recycle your skills
+                    </p>
+                </div>
+            </div>
         </div>
     </section>
-    <section id="slide-1-1" class="slide">
-        <div class="slide-content">
-            <h2>CSS files are huge</h2>
-            <p>TODO:example</p>
-        </div>
-    </section>
-    <section id="slide-2" class="slide">
-        <div class="slide-content">
-            <h2>A superset of CSS</h2>
-            <p>
-                All valid CSS are valid SCSS
-                <br />
-                + variables
-                <br />
-                + flow control
-                <br />
-                + reusable blocks of code
-                <br />
-                TODO:visual (Venn diagram)
-            </p>
-        </div>
-    </section>
-    <section id="slide-4" class="slide">
-        <div class="slide-content">
-            <h2>Benefits</h2>
-            <p>
-                Keep complexity in check
-                <br />
-                Improve usability
-            </p>
-        </div>
-    </section>
-    <section id="slide-3" class="slide">
-        <div class="slide-content">
-            <h2>Leverage your existing<br /> CSS experience</h2>
-            <p>
-                Familiar syntax
-                <br />
-                Low learning curve
-                <br />
-                Almost immediate integration
-            </p>
-        </div>
-    </section>
-    <section id="slide-5" class="slide">
+    <section id="slide-note" class="slide">
         <div class="slide-content">
             <h2>A <em>pre</em>processor, NOT a runtime</h2>
         </div>
     </section>
-    <section id="slide-6" class="slide">
+    <section id="slide-nesting" class="slide">
         <div class="slide-content">
             <h2>Nesting</h2>
             <p>
-                HTML is hierachical, CSS is linear
-                <br />
-                SASS brings hierachy and structure to your CSS
-                <br />
-                TODO:screenshot + demo
+                HTML is hierachical, so should your CSS
             </p>
+            <div class="canvas">
+                <nav>
+                    <ul>
+                        <li>
+                            <a>One</a>
+                        </li>
+                        <li>
+                            <a>Two</a>
+                        </li>
+                        <li>
+                            <a>Three</a>
+                        </li>
+                        <li>
+                            <a>Four</a>
+                        </li>
+                    </ul>
+                </nav>
+
+            </div>
         </div>
-        <textarea class="source-scss" hidden></textarea>
+        <textarea class="source-scss" hidden>
+@mixin transition($prop:all, $easeFn:linear, $duration:1s, $delay:null){
+    @if($prop == 'transform'){
+        -moz-transition: -moz-transform $easeFn $duration;
+        -o-transition: -o-transform $easeFn $duration;
+        -webkit-transition: -webkit-transform $easeFn $duration;
+        transition: transform $easeFn $duration;
+        -webkit-backface-visibility: hidden;
+        -moz-backface-visibility:    hidden;
+        -ms-backface-visibility:     hidden;
+        backface-visibility:     hidden;
+    }
+    @else{
+        -moz-transition: $prop $easeFn $duration;
+        -o-transition: $prop $easeFn $duration;
+        -webkit-transition: $prop $easeFn $duration;
+        transition: $prop $easeFn $duration;
+    }
+    @if($delay){
+        -webkit-transition-delay: $delay;
+        -moz-transition-delay: $delay;
+        -o-transition-delay: $delay;
+        transition-delay: $delay;
+    }
+}
+
+#slide-nesting{
+    .canvas{
+        margin:0 auto;
+        width:400px;
+        ul{
+            $base-bg:#38ac86;
+            $item-height:4rem;
+            padding:0;
+            margin:0;
+            list-style:none;
+            li {
+                display:block;
+                float:left;
+                a {
+                    display:block;
+                    height:$item-height;
+                    line-height:$item-height;
+                    min-width:6rem;
+                    padding:0 1rem;
+                    text-align:center;
+                    text-decoration:none;
+                    border-right:1px solid lighten($base-bg, 25%);
+                    background-color:$base-bg;
+                    text-transform:uppercase;
+                    font-weight:bold;
+                    @include transition(all, ease, 330ms);
+                    &:hover{
+                        background-color:lighten($base-bg, 20%);
+                        color:darken($base-bg, 20%);
+                    }
+                }
+                &:last-child a{
+                    border-right:none;
+                }
+            }
+        }
+    }
+}
+        </textarea>
         <textarea class="source-css" hidden></textarea>
-        <link href="css/sass-slide/slide-6.css" rel="stylesheet" />
+        <link href="css/sass-slide/slide-nesting.css" rel="stylesheet" />
     </section>
-    <section id="slide-7" class="slide">
+    <section id="slide-nesting-bad" class="slide">
         <div class="slide-content">
             <h2>Caveat: not too much nesting</h2>
+            <p>
+                Try not to go more than 4 levels deep
+                <br />
+                (B)lock (E)lement (M)odifier
+                <br />
+            </p>
         </div>
-        <textarea class="source-scss" hidden></textarea>
+        <textarea class="source-scss" hidden>
+body {
+  div.container {
+    div.content {
+      div.articles {
+        & > div.post {
+          div.title {
+            h1 {
+              a { color:white;
+              }
+            }
+          }
+          div.content {
+            p {  }
+            ul {
+              li { color:red; }
+            }
+          }
+          div.author {
+            a.display {
+              img { width:100%; }
+            }
+            h4 {
+              a { text-align:center; }
+            }
+            p {
+              a { text-align:right; }
+            }
+            ul {
+              li { padding:0; }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+        </textarea>
         <textarea class="source-css" hidden></textarea>
-        <link href="css/sass-slide/slide-7.css" rel="stylesheet" />
+        <link href="css/sass-slide/slide-nesting-bad.css" rel="stylesheet" />
     </section>
-    <section id="slide-8" class="slide">
+    <section id="slide-vars-mixins" class="slide">
         <div class="slide-content">
-            <h2>Variables: colors</h2>
+            <h2>Variables and mixins</h2>
             <p>
                 <div class="canvas">
                 </div>
             </p>
         </div>
-        <textarea class="source-scss" hidden>@mixin linear-gradient($from, $to){
+        <textarea class="source-scss" hidden>
+@mixin linear-gradient($from, $to){
     background: $from;
     background: -webkit-gradient(linear, 0 0, 0 bottom, from($from), to($to));
     background: -webkit-linear-gradient($from, $to);
@@ -130,84 +471,138 @@
 	}
 }
 
-#slide-8{
+#slide-vars-mixins{
     .canvas{
-        @include linear-gradient(#70f82a, #bdf4e1);
+        width:400px;
+        height:400px;
+        margin:0 auto;
+        
+        //#70f82a #bdf4e1
+        $from-bg:#F5220F;
+        $to-bg:#FD6406;
+        @include linear-gradient($to-bg, $from-bg);
         @include border-radius(100%);
-
+        border:16px solid lighten($to-bg, 20%);
+        &:hover{
+            @include linear-gradient($from-bg, $to-bg);
+        }
     }
-}</textarea>
+}
+        </textarea>
         <textarea class="source-css" hidden></textarea>
-        <link href="css/sass-slide/slide-12.css" rel="stylesheet" />
+        <link href="css/sass-slide/slide-vars-mixins.css" rel="stylesheet" />
     </section>
-    <section id="slide-9" class="slide">
+    <section id="slide-media-queries" class="slide">
         <div class="slide-content">
-            <h2>Variables: measurements</h2>
-            <p>
-                TODO:demo
-            </p>
-        </div>
-        <textarea class="source-scss" hidden></textarea>
-        <textarea class="source-css" hidden></textarea>
-        <link href="css/sass-slide/slide-8.css" rel="stylesheet" />
-    </section>
-    <section id="slide-10" class="slide">
-        <div class="slide-content">
-            <h2>Variables: media queries</h2>
-            <p>
-                TODO:demo, responsive design
-            </p>
-        </div>
-        <textarea class="source-scss" hidden></textarea>
-        <textarea class="source-css" hidden></textarea>
-        <link href="css/sass-slide/slide-8.css" rel="stylesheet" />
-    </section>
-    <section id="slide-11" class="slide">
-        <div class="slide-content">
-            <h2>Data structure: list, hash</h2>
-            <p>
-                TODO:demo, icon fonts
-            </p>
-        </div>
-        <textarea class="source-scss" hidden></textarea>
-        <textarea class="source-css" hidden></textarea>
-        <link href="css/sass-slide/slide-8.css" rel="stylesheet" />
-    </section>
-    <section id="slide-12" class="slide">
-        <div class="slide-content">
-            <h2>Mixin</h2>
+            <h2>Responsive</h2>
             <div class="canvas">
             </div>
         </div>
-        <textarea class="source-scss" hidden></textarea>
+        <textarea class="source-scss" hidden>
+// Foundation's Media Query Ranges
+@function lower-bound($range){
+  @if length($range) <= 0 {
+    @return 0;
+  }
+  @return nth($range,1);
+}
+
+@function upper-bound($range) {
+  @if length($range) < 2 {
+    @return 999999999999;
+  }
+  @return nth($range, 2);
+}
+
+$small-range: (0em, 40em) !default;
+$medium-range: (40.063em, 64em) !default;
+$large-range: (64.063em, 90em) !default;
+$xlarge-range: (90.063em, 120em) !default;
+$xxlarge-range: (120.063em, 99999999em) !default;
+
+$screen: "only screen" !default;
+
+$landscape: "#{$screen} and (orientation: landscape)" !default;
+$portrait: "#{$screen} and (orientation: portrait)" !default;
+
+$small-up: $screen !default;
+$small-only: "#{$screen} and (max-width: #{upper-bound($small-range)})" !default;
+
+$medium-up: "#{$screen} and (min-width:#{lower-bound($medium-range)})" !default;
+$medium-only: "#{$screen} and (min-width:#{lower-bound($medium-range)}) and (max-width:#{upper-bound($medium-range)})" !default;
+
+$large-up: "#{$screen} and (min-width:#{lower-bound($large-range)})" !default;
+$large-only: "#{$screen} and (min-width:#{lower-bound($large-range)}) and (max-width:#{upper-bound($large-range)})" !default;
+
+$xlarge-up: "#{$screen} and (min-width:#{lower-bound($xlarge-range)})" !default;
+$xlarge-only: "#{$screen} and (min-width:#{lower-bound($xlarge-range)}) and (max-width:#{upper-bound($xlarge-range)})" !default;
+
+$xxlarge-up: "#{$screen} and (min-width:#{lower-bound($xxlarge-range)})" !default;
+$xxlarge-only: "#{$screen} and (min-width:#{lower-bound($xxlarge-range)}) and (max-width:#{upper-bound($xxlarge-range)})" !default;
+
+
+@mixin breakpoint($min-width) {
+    $mq:"#{$screen} and (min-width:#{$min-width})";
+    @media #{$mq} {
+        @content;
+    }
+}
+
+
+#slide-media-queries{
+    $base-bg:#50c989;
+    .canvas{
+        &:before, &:after{
+            display:block;
+            width:100%;
+            line-height:6rem;
+            height:6rem;
+            text-align:center;
+            font-size:2rem;
+            background-color:$base-bg;
+            color:darken($base-bg, 40%);
+        }
+        
+        &:before{
+            content:"Small";
+            
+            @media #{$medium-up}{
+                content:"Medium";
+                background-color:lighten($base-bg, 10%);
+            }
+            @media #{$large-up}{
+                content:"Large";
+                background-color:lighten($base-bg, 20%);
+            }
+            @media #{$xlarge-up}{
+                content:"X-Large";
+                background-color:lighten($base-bg, 30%);
+            }
+            @media #{$xxlarge-up}{
+                content:"XX-Large";
+                background-color:lighten($base-bg, 40%);
+            }
+        }
+
+        &:after{
+            $verse: I "don’t" want to set the world on fire I just want to start A flame in your heart;
+            @for $i from 1 through length($verse) {
+                $width: $i * 5em + 15em;
+                @include breakpoint($width){
+                    content:"#{nth($verse, $i)}";
+                    background-color:lighten($base-bg, $i * 2%);
+                }
+            }
+        }
+    }
+}
+        </textarea>
         <textarea class="source-css" hidden></textarea>
-        <link href="css/sass-slide/slide-12a.css" rel="stylesheet" />
-    </section>
-    <section id="slide-13" class="slide">
-        <div class="slide-content">
-            <h2>Mixin</h2>
-            <p>
-                TODO:demo, animation effects
-            </p>
-        </div>
-        <textarea class="source-scss" hidden></textarea>
-        <textarea class="source-css" hidden></textarea>
-        <link href="css/sass-slide/slide-8.css" rel="stylesheet" />
-    </section>
-    <section id="slide-14" class="slide">
-        <div class="slide-content">
-            <h2>Control flow</h2>
-            <p>
-                TODO:demo, animation effects, if, else, for-loop
-            </p>
-        </div>
-        <textarea class="source-scss" hidden></textarea>
-        <textarea class="source-css" hidden></textarea>
-        <link href="css/sass-slide/slide-8.css" rel="stylesheet" />
+        <link href="css/sass-slide/slide-media-queries.css" rel="stylesheet" />
     </section>
     <section id="slide-16" class="slide">
         <div class="slide-content">
-            <h2>God is in the details</h2>
+            <h2>Thank you</h2>
         </div>
         <textarea class="source-scss" hidden></textarea>
         <textarea class="source-css" hidden></textarea>
@@ -217,11 +612,11 @@
         <div class="row">
             <div class="columns medium-6">
                 <h3>SCSS</h3>
-                <textarea id="source-scss">.code{ color:red; }</textarea>
+                <textarea id="source-scss"></textarea>
             </div>
             <div class="columns medium-6">
                 <h3>CSS</h3>
-                <textarea id="source-css">.code{ color:red; }</textarea>
+                <textarea id="source-css"></textarea>
             </div>
         </div>
         <button type="button" id="btnSave">→</button>
@@ -236,10 +631,10 @@
         //editor
         $(function () {
             var scssDoc = CodeMirror.fromTextArea(document.getElementById("source-scss"), {
-                mode: "sass"
+                lineNumbers: true, mode: "sass"
             });
             var cssDoc = CodeMirror.fromTextArea(document.getElementById("source-css"), {
-                mode: "css"
+                lineNumbers: true, mode: "css"
             });
             $("#btnSave").click(function () {
                 var scssStr = scssDoc.getValue();

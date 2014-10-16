@@ -1,0 +1,104 @@
+﻿#slide-media-queries .canvas:before, #slide-media-queries .canvas:after {
+  display: block;
+  width: 100%;
+  line-height: 6rem;
+  height: 6rem;
+  text-align: center;
+  font-size: 2rem;
+  background-color: #50c989;
+  color: #123b25; }
+#slide-media-queries .canvas:before {
+  content: "Small"; }
+  @media only screen and (min-width:40.063em) {
+    #slide-media-queries .canvas:before {
+      content: "Medium";
+      background-color: #77d5a3; } }
+  @media only screen and (min-width:64.063em) {
+    #slide-media-queries .canvas:before {
+      content: "Large";
+      background-color: #9ee1bd; } }
+  @media only screen and (min-width:90.063em) {
+    #slide-media-queries .canvas:before {
+      content: "X-Large";
+      background-color: #c5edd8; } }
+  @media only screen and (min-width:120.063em) {
+    #slide-media-queries .canvas:before {
+      content: "XX-Large";
+      background-color: #ecf9f2; } }
+@media only screen and (min-width:20em) {
+  #slide-media-queries .canvas:after {
+    content: "I";
+    background-color: #58cb8e; } }
+@media only screen and (min-width:25em) {
+  #slide-media-queries .canvas:after {
+    content: "don’t";
+    background-color: #60ce93; } }
+@media only screen and (min-width:30em) {
+  #slide-media-queries .canvas:after {
+    content: "want";
+    background-color: #67d098; } }
+@media only screen and (min-width:35em) {
+  #slide-media-queries .canvas:after {
+    content: "to";
+    background-color: #6fd39e; } }
+@media only screen and (min-width:40em) {
+  #slide-media-queries .canvas:after {
+    content: "set";
+    background-color: #77d5a3; } }
+@media only screen and (min-width:45em) {
+  #slide-media-queries .canvas:after {
+    content: "the";
+    background-color: #7fd7a8; } }
+@media only screen and (min-width:50em) {
+  #slide-media-queries .canvas:after {
+    content: "world";
+    background-color: #87daad; } }
+@media only screen and (min-width:55em) {
+  #slide-media-queries .canvas:after {
+    content: "on";
+    background-color: #8edcb3; } }
+@media only screen and (min-width:60em) {
+  #slide-media-queries .canvas:after {
+    content: "fire";
+    background-color: #96dfb8; } }
+@media only screen and (min-width:65em) {
+  #slide-media-queries .canvas:after {
+    content: "I";
+    background-color: #9ee1bd; } }
+@media only screen and (min-width:70em) {
+  #slide-media-queries .canvas:after {
+    content: "just";
+    background-color: #a6e3c3; } }
+@media only screen and (min-width:75em) {
+  #slide-media-queries .canvas:after {
+    content: "want";
+    background-color: #aee6c8; } }
+@media only screen and (min-width:80em) {
+  #slide-media-queries .canvas:after {
+    content: "to";
+    background-color: #b5e8cd; } }
+@media only screen and (min-width:85em) {
+  #slide-media-queries .canvas:after {
+    content: "start";
+    background-color: #bdebd2; } }
+@media only screen and (min-width:90em) {
+  #slide-media-queries .canvas:after {
+    content: "A";
+    background-color: #c5edd8; } }
+@media only screen and (min-width:95em) {
+  #slide-media-queries .canvas:after {
+    content: "flame";
+    background-color: #cdefdd; } }
+@media only screen and (min-width:100em) {
+  #slide-media-queries .canvas:after {
+    content: "in";
+    background-color: #d5f2e2; } }
+@media only screen and (min-width:105em) {
+  #slide-media-queries .canvas:after {
+    content: "your";
+    background-color: #dcf4e8; } }
+@media only screen and (min-width:110em) {
+  #slide-media-queries .canvas:after {
+    content: "heart";
+    background-color: #e4f7ed; } }
+

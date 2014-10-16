@@ -65,7 +65,6 @@ html, body{
     .canvas{
         min-width:400px;
         min-height:400px;
-        background:white;
     }
 }
 
@@ -73,11 +72,10 @@ html, body{
     display:block;
     position:absolute;
     width:4rem;
-    height:4rem;
+    height:100%;
     margin:0;
     padding:0;
-    top:50%;
-    margin-top:-2rem;
+    top:0;
     text-align:center;
     line-height:4rem;
     background:none;

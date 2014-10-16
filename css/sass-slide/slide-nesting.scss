@@ -1,0 +1,71 @@
+﻿@mixin transition($prop:all, $easeFn:linear, $duration:1s, $delay:null){
+    @if($prop == 'transform'){
+        -moz-transition: -moz-transform $easeFn $duration;
+        -o-transition: -o-transform $easeFn $duration;
+        -webkit-transition: -webkit-transform $easeFn $duration;
+        transition: transform $easeFn $duration;
+        -webkit-backface-visibility: hidden;
+        -moz-backface-visibility:    hidden;
+        -ms-backface-visibility:     hidden;
+        backface-visibility:     hidden;
+    }
+    @else{
+        -moz-transition: $prop $easeFn $duration;
+        -o-transition: $prop $easeFn $duration;
+        -webkit-transition: $prop $easeFn $duration;
+        transition: $prop $easeFn $duration;
+    }
+    @if($delay){
+        -webkit-transition-delay: $delay;
+        -moz-transition-delay: $delay;
+        -o-transition-delay: $delay;
+        transition-delay: $delay;
+    }
+}
+@mixin clearfix {
+  *zoom:1;
+  &:before, &:after { content: " "; display: table; }
+  &:after { clear: both; }
+}
+
+#slide-nesting{
+    .canvas{
+        margin:0 auto;
+        width:400px;
+        height:auto;
+        min-height:0;
+        ul{
+            $base-bg:#38ac86;
+            $item-height:4rem;
+            padding:0;
+            margin:0;
+            list-style:none;
+            @include clearfix;
+            li {
+                display:block;
+                float:left;
+                a {
+                    display:block;
+                    height:$item-height;
+                    line-height:$item-height;
+                    min-width:6rem;
+                    padding:0 1rem;
+                    text-align:center;
+                    text-decoration:none;
+                    border-right:1px solid lighten($base-bg, 25%);
+                    background-color:$base-bg;
+                    text-transform:uppercase;
+                    font-weight:bold;
+                    @include transition(all, ease, 330ms);
+                    &:hover{
+                        background-color:lighten($base-bg, 20%);
+                        color:darken($base-bg, 20%);
+                    }
+                }
+                &:last-child a{
+                    border-right:none;
+                }
+            }
+        }
+    }
+}
