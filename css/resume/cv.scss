@@ -1,9 +1,15 @@
-﻿@import "../foundation/settings",
-		"../foundation",
+﻿@charset "UTF-8";
+@import "../foundation/settings",
+		"../foundation/functions",
+		"../normalize",
+		"../foundation/components/grid",
+		"../foundation/components/type",
 		"../_common/mixins";
 
 html, body{
 	height:100%;
+	font-size:14px;
+	color:white;
 }
 .slide{
 	height:100%;
@@ -26,7 +32,7 @@ html, body{
         z-index:2;
 		vertical-align:middle;
     }
-	$colors:#343838, #005F6B, #008C9E, #00B4CC;
+	$colors:#005F6B,#343838, #005F6B, #008C9E, #00B4CC;
 	@for $i from 1 through length($colors)
 	{
 		&:nth-of-type(#{length($colors)}n+#{$i}){
@@ -95,6 +101,13 @@ dl {
 		background-image:url(/images/bike.png);
 	}
 }
+#evasolo{
+	&:after{
+		background-image:url(/images/evasolo.jpg);
+		background-position: 100% 55%;
+		background-size:45%;
+	}
+}
 #synoptik{
 	&:after{
 		background-image:url(/images/synoptik.jpg);
@@ -149,6 +162,7 @@ dl {
 	.skill{
 		min-width:256px;
 		text-align:right;
+		line-height:1.2;
 		@media #{$small-only}{
 			text-align:left;
 			width:100%;
@@ -159,6 +173,7 @@ dl {
 		@media #{$small-only}{
 			width:100%;
 		}
+		line-height:1.2;
 		text-align:center;
 		border:1px solid #00DFFC;
 		position:relative;

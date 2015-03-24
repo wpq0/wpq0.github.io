@@ -7,7 +7,7 @@
 //
 // @variables
 //
-$include-html-grid-classes: $include-html-classes !default;
+$include-html-grid-classes: true !default;
 $include-xl-html-grid-classes: false !default;
 
 $row-width: rem-calc(1000) !default;
@@ -202,9 +202,7 @@ $total-columns: 12 !default;
   }
 }
 
-@include exports("grid") {
-  @if $include-html-grid-classes {
-    .row {
+.row {
       @include grid-row;
 
       &.collapse {
@@ -249,13 +247,3 @@ $total-columns: 12 !default;
         }
       }
     }
-  }
-  @if $include-xl-html-grid-classes {
-    @media #{$xlarge-up} {
-      @include grid-html-classes($size:xlarge);
-    }
-    @media #{$xxlarge-up} {
-      @include grid-html-classes($size:xxlarge);
-    }
-  }
-}

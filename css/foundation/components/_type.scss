@@ -203,8 +203,7 @@ $microformat-abbr-font-decoration: none !default;
   margin-top: $subheader-top-margin;
   margin-bottom: $subheader-bottom-margin;
 }
-@include exports("type") {
-  @if $include-html-type-classes {
+@if $include-html-type-classes {
 
     /* Typography resets */
     div,
@@ -525,4 +524,3 @@ $microformat-abbr-font-decoration: none !default;
     }
 
   }
-}
