@@ -158,7 +158,7 @@ Front-end for corporate site
 - EPiServer CMS 6 Certified Developer(2013)
 - EPiServer CMS 7 Certified Developer(2013)
 - Scrum Master Cerfitication (2015)
-- IELTS score: 8.5
+- IELTS score: 8.5 (Sep 2017)
 
 ## Publications
 
