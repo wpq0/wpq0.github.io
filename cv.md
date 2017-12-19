@@ -66,6 +66,9 @@ Time tracking and billing system, hosted on Azure cloud
 - ISO-8601 and dealing with time-zone bugs
 
 ### Legoland
+CMS and site for legoland parks around the world
+
+**Things I've learned:** 
 
 - EPiServer CMS 6
 - Typescript and type definition declaration with t4 text template
@@ -81,9 +84,8 @@ B2C commerce site and a learning management system built on top of EPiServer
 **Things I've learned:**
 
 - EPiServer CMS 7
-- ImageMagick
+- ImageMagick for responsive image generation
 - Precise PDF generation for printing with PrinceXML
-- 
 
 ### Synoptik
 
@@ -166,6 +168,8 @@ Fitness program guide and progress tracking app
 - TOEIC score: 925/990 (Jan 2009)
 - EPiServer CMS 6 Certified Developer(2013)
 - EPiServer CMS 7 Certified Developer(2013)
+- Scrum Master Cerfitication (2015)
+- IELTS score: 8.5
 
 ## Publications
 
