@@ -149,7 +149,7 @@ Hierarchical ticket management system similar to Jira
 **What I've learned:**
 - .NET Core 2.0 and ASP.NET Core 2
 - PostgreSQL
-- CQRS
+- CQRS and Event Sourcing
 
 ## Qualifications
 
