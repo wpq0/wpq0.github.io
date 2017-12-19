@@ -142,23 +142,12 @@ Front-end for corporate site
 - Caching pattern with Redis
 - The complication of Highchart vs the simplicity of D3
 
-### Litium (advisory role): 
-
-eCommerce system migrating from Angular 1 to Angular 2 with Typescript 
+### Nymans Electriska 
 
 **What I've learned:**
-
-- Angular 2 with Typescript
-- State management for Angular 2 with ngrx
-- Observable with RxJS
-
-### BoostBuddy (advisory role): 
-
-Fitness program guide and progress tracking app
-
-**What I've learned:**
-
-- React, redux, styled component, ImmutableJS, redux-saga and webpack
+- .NET Core 2.0 and ASP.NET Core 2
+- PostgreSQL
+- CQRS
 
 ## Qualifications
 
