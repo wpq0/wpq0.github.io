@@ -27,100 +27,29 @@ I'm a full-stack software engineer with a passion for all web stuffs.
 
 ## Projects
 
-### BKAV eTax
+### Nymans Electriska (2017)
 
-Tax form filing and submission for small and medium enterprises
-
-**Url:** [https://etax.noptokhai.vn/](https://etax.noptokhai.vn/)
-
-**Things I've learned:**
-
-- Tax forms are insanely complex
-- ASP.NET MVC with Entity Framework and LINQ
-- MVVM with Knockout.js
-- Schema based form builder
-- Synchronize validation/calculation logic between server-side and client-side code using a common Abstract Syntax Tree (AST)
-- Parsing an obscure (and outdated) wire format: SOAP with attachment
-- PDF AcroForm with iText
-- Cryptographic digital signature with various document formats: pdf, docx, xlsx
-
-### Tiny Expression Evaluator
-
-Personal project: simple expression language
-
-**Url:** [https://github.com/wpq0/Tiny-Expression-Evaluator](https://github.com/wpq0/Tiny-Expression-Evaluator)
-
-**Things I've learned:**
-
-- Parser generator, eBNF notation, ANTLR grammar
-- Linq.Expression tree and Dynamic Language Runtime
-
-### Niteco Timesheet
-Time tracking and billing system, hosted on Azure cloud
-
-**Url:** http://niteco.efficienttime.com
-
-**Things I've learned:**
-
-- Corporate time tracking
-- ISO-8601 and dealing with time-zone bugs
-
-### Legoland
-CMS and site for legoland parks around the world
-
-**Things I've learned:** 
-
-- EPiServer CMS 6
-- Typescript and type definition declaration with t4 text template
-- Hotel booking and payment gateway integration
-- Custom map projection (1:1) with leaflet
-
-### EvaSolo
-
-**Url:** [https://www.evasolo.com/](https://www.evasolo.com/)
-
-B2C commerce site and a learning management system built on top of EPiServer
-
-**Things I've learned:**
-
-- EPiServer CMS 7
-- ImageMagick for responsive image generation
-- Precise PDF generation for printing with PrinceXML
-
-### Synoptik
-
-Interactive eyewear style guide
-
-**Url:** [http://guide.synoptik.dk/](http://guide.synoptik.dk/)
+Hierarchical ticket management system similar to Jira
 
 **What I've learned:**
+- .NET Core 2.0 and ASP.NET Core 2
+- PostgreSQL
+- CQRS and Event Sourcing
+- Documentation generation for Web API with Swagger
+- Continuous Integration with Teamcity and Octopus over Azure cloud
+- react, redux, redux-saga
 
-- Responsive web design
-- CSS animation
-- SASS
+### Dagens Industri (2016 - 2017)
 
-### Niteco Recruitment System
-
-Recruitment workflow and candidate database
-
-**What I've learned:**
-
-- Data migration
-- Data preparation for Elastic Search
-- Securing RESTful web api with HMAC
-- Transactional email with SendGrid
-- LDAP, Exchange and Sharepoint integration
-
-### Al Futtaim (advisory role): 
-
-Front-end for corporate site
+**Url:** [http://www.di.se/](http://www.di.se/)
 
 **What I've learned:**
-- Client side build workflow with npm, bower, gulp, webpack, postCSS, Jade (Pug)and SASS
-- Assets bundling and generation (png, svg, icon font)
-- Validation and linting
+- Vanilla JS can be powerful and liberating
+- Stock and exchange business
+- Caching pattern with Redis
+- The complication of Highchart vs the simplicity of D3
 
-### Dagens Nyheter 
+### Dagens Nyheter (2015 - 2016)
 
 **Url:** [http://www.dn.se/](http://www.dn.se/)
 
@@ -132,24 +61,98 @@ Front-end for corporate site
 - Ecmascript 2015, 2016
 - Observing a well-oiled continuous delivery/integration system at work.
 
-### Dagens Industri
+### Al Futtaim (advisory role - 2015): 
 
-**Url:** [http://www.di.se/](http://www.di.se/)
-
-**What I've learned:**
-- Vanilla JS can be powerful and liberating
-- Stock and exchange business
-- Caching pattern with Redis
-- The complication of Highchart vs the simplicity of D3
-
-### Nymans Electriska 
-
-Hierarchical ticket management system similar to Jira
+Front-end for corporate site
 
 **What I've learned:**
-- .NET Core 2.0 and ASP.NET Core 2
-- PostgreSQL
-- CQRS and Event Sourcing
+- Client side build workflow with npm, bower, gulp, webpack, postCSS, Jade (Pug)and SASS
+- Assets bundling and generation (png, svg, icon font)
+- Validation and linting
+
+### Niteco Recruitment System (2015)
+
+Recruitment workflow and candidate database
+
+**What I've learned:**
+
+- Data migration
+- Data preparation for Elastic Search
+- Securing RESTful web api with HMAC
+- Transactional email with SendGrid
+- LDAP, Exchange and Sharepoint integration
+
+### Synoptik (2015)
+
+Interactive eyewear style guide
+
+**Url:** [http://guide.synoptik.dk/](http://guide.synoptik.dk/)
+
+**What I've learned:**
+
+- Responsive web design
+- CSS animation
+- SASS
+
+### EvaSolo (2015)
+
+**Url:** [https://www.evasolo.com/](https://www.evasolo.com/)
+
+B2C commerce site and a learning management system built on top of EPiServer
+
+**Things I've learned:**
+
+- EPiServer CMS 7
+- ImageMagick for responsive image generation
+- Precise PDF generation for printing with PrinceXML
+
+### Legoland (2013 - 2015)
+CMS and site for legoland parks around the world
+
+**Things I've learned:** 
+
+- EPiServer CMS 6
+- Typescript and type definition declaration with t4 text template
+- Hotel booking and payment gateway integration
+- Custom map projection (1:1) with leaflet
+
+### Niteco Timesheet (2012)
+Time tracking and billing system, hosted on Azure cloud
+
+**Url:** http://niteco.efficienttime.com
+
+**Things I've learned:**
+
+- Corporate time tracking
+- ISO-8601 and dealing with time-zone bugs
+
+### Tiny Expression Evaluator (2012)
+
+Personal project: simple expression language
+
+**Url:** [https://github.com/wpq0/Tiny-Expression-Evaluator](https://github.com/wpq0/Tiny-Expression-Evaluator)
+
+**Things I've learned:**
+
+- Parser generator, eBNF notation, ANTLR grammar
+- Linq.Expression tree and Dynamic Language Runtime
+
+### BKAV eTax (2011)
+
+Tax form filing and submission for small and medium enterprises
+
+**Url:** [https://etax.noptokhai.vn/](https://etax.noptokhai.vn/)
+
+**Things I've learned:**
+
+- Tax forms are insanely complex
+- ASP.NET MVC 4 with Entity Framework and LINQ
+- MVVM with Knockout.js
+- Schema based form builder
+- Synchronize validation/calculation logic between server-side and client-side code using a common Abstract Syntax Tree (AST)
+- Parsing an obscure (and outdated) wire format: SOAP with attachment
+- PDF AcroForm with iText
+- Cryptographic digital signature with various document formats: pdf, docx, xlsx
 
 ## Qualifications
 
